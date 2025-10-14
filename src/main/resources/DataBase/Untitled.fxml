@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DataBase.databaseMain_Controller">
+   <children>
+      <TextField layoutX="161.0" layoutY="27.0" />
+      <Label layoutX="106.0" layoutY="27.0" prefHeight="26.0" prefWidth="44.0" text="Search:" />
+      <MenuButton layoutX="161.0" layoutY="61.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Search by:">
+        <items>
+          <MenuItem mnemonicParsing="false" text="ID" />
+          <MenuItem mnemonicParsing="false" text="Name" />
+            <MenuItem mnemonicParsing="false" text="HCode" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>

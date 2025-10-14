@@ -11,4 +11,7 @@ module com.example.csia {
 
     opens com.example.csia to javafx.fxml;
     exports com.example.csia;
+
+    opens DataBase to javafx.fxml;
+    exports DataBase;
 }
