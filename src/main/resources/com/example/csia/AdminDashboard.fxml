@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csia.controllers.AdminDashboard_Controller"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia.controllers.AdminDashboard_Controller">
+   <children>
+      <Line endX="-90.0" endY="-144.0" layoutX="177.0" layoutY="144.0" startX="-90.0" startY="256.0" />
+      <ImageView fx:id="searchImage" fitHeight="60" fitWidth="60"
+                 layoutX="18" layoutY="17" onMouseClicked="#takeToSearch" pickOnBounds="true" preserveRatio="true" />
 
+      <ImageView fx:id="usersImage" fitHeight="60" fitWidth="60"
+                 layoutX="18" layoutY="130" onMouseClicked="#takeToUsers" pickOnBounds="true" preserveRatio="true" />
+
+      <Label layoutX="27.0" layoutY="85.0" text="Search" />
+      <Label layoutX="31.0" layoutY="196.0" text="Users" />
+      <Label layoutX="118.0" layoutY="14.0" prefHeight="71.0" prefWidth="170.0" text="Welcome Admin">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="logoutButton" layoutX="538.0" layoutY="3.0" mnemonicParsing="false" onAction="#onClickLogout" text="Logout" />
+   </children>
 </AnchorPane>

@@ -1,16 +1,25 @@
 package com.example.csia.models;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+public class Chemical {
+    private int id;
+    private String name;
+    private String HCode;
 
-public class Chemical extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
+    public Chemical(int id, String name, String HCode) {
+        this.id = id;
+        this.name = name;
+        this.HCode = HCode;
     }
 
-    @Override
-    public void start(Stage primaryStage) {
+    public int getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getHCode() {
+        return HCode;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.csia.controllers;
 
+import com.example.csia.utils.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
@@ -31,7 +32,7 @@ public class UserSearch_Controller {
     private MenuItem nameSelection;
 
     public void onClickLogout(ActionEvent event) {
-
+        SceneManager.switchScene("login.fxml", "Login");
     }
 
     public void onClickSearch(ActionEvent event) {

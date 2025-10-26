@@ -1,16 +1,29 @@
 package com.example.csia.models;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+public class User {
+    private String id;
+    private String name;
+    private String password;
 
-public class User extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
+    public User(String id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
     }
 
-    @Override
-    public void start(Stage primaryStage) {
+    public String getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String toString() {
+        return name;
     }
 }

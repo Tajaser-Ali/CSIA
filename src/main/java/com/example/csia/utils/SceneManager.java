@@ -2,15 +2,29 @@ package com.example.csia.utils;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class SceneManager extends Application {
+public class SceneManager{
+    private static Stage mainStage;
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void setStage(Stage stage) {
+        mainStage = stage;
     }
 
-    @Override
-    public void start(Stage primaryStage) {
+    public static void switchScene(String fxmlFile, String title) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/com/example/csia/" + fxmlFile));
 
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+            mainStage.setTitle(title);
+            mainStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
