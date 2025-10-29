@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia.controllers.Users_Controller">
    <children>
       <ListView fx:id="userListView" layoutX="42.0" layoutY="43.0" prefHeight="342.0" prefWidth="335.0" />
-      <MenuButton fx:id="searchSelector" layoutX="472.0" layoutY="66.0" mnemonicParsing="false" text="MenuButton">
+      <MenuButton fx:id="searchSelector" layoutX="472.0" layoutY="66.0" mnemonicParsing="false" text="Search By">
         <items>
           <MenuItem fx:id="idSelection" mnemonicParsing="false" onAction="#selectID" text="ID" />
           <MenuItem fx:id="nameSelection" mnemonicParsing="false" onAction="#selectName" text="Name" />

@@ -7,6 +7,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
+import com.example.csia.utils.DatabaseHandler;
+import java.sql.*;
 
 
 public class Login_Controller {
@@ -30,17 +32,35 @@ public class Login_Controller {
         String id = idField.getText();
         String password = passwordField.getText();
 
-        if (id.equals("admin") && password.equals("admin123")) {
+        if (id.equals("TAli") && password.equals("123one")) {
             // Admin login → go to AdminDashboard
             SceneManager.switchScene("admindashboard.fxml", "Admin Dashboard");
-        } else if (id.equals("user") && password.equals("user123")) {
-            // User login → go to UserSearch
-            SceneManager.switchScene("usersearch.fxml", "User Search");
         } else {
-            // Invalid login
-            statusLabel.setText("Invalid ID or password");
+            // Check user credentials from database
+            DatabaseHandler dbHandler = new DatabaseHandler(); // create instance
+            try (Connection conn = dbHandler.getConnection()) { // use instance
+                String query = "SELECT * FROM `User` WHERE ID = ? AND Password = ?";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                stmt.setString(1, id);
+                stmt.setString(2, password);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    // User found → go to UserSearch
+                    SceneManager.switchScene("usersearch.fxml", "User Search");
+                } else {
+                    // Invalid login
+                    statusLabel.setText("Invalid ID or password");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                statusLabel.setText("Database error");
+            }
+
         }
     }
+
 
     public void onClickSendToForgot(ActionEvent actionEvent) {
         SceneManager.switchScene("forgot.fxml", "Forgot ID/Password");

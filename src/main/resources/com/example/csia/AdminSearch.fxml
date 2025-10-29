@@ -22,14 +22,14 @@
             </items>
         </MenuButton>
         <Label layoutX="149.0" layoutY="156.0" prefHeight="17.0" prefWidth="60.0" text="Chemical:" />
-      <Label layoutX="25.0" layoutY="21.0" text="Welcome back Admin">
+      <Label layoutX="25.0" layoutY="21.0" text="Admin Search">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <CheckBox fx:id="editToggler" layoutX="322.0" layoutY="193.0" mnemonicParsing="false" text="Edit" />
       <Button fx:id="backButton" layoutX="544.0" layoutY="360.0" mnemonicParsing="false" onAction="#onClickGoBack" text="Back" />
-        <Label fx:id="statusLabel" layoutX="179.0" layoutY="270.0" prefWidth="200.0" textFill="RED" />
+        <Label fx:id="statusLabel" layoutX="149.0" layoutY="270.0" prefHeight="17.0" prefWidth="398.0" textFill="RED" />
     </children>
 
 </AnchorPane>

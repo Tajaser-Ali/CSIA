@@ -23,7 +23,8 @@ public class User {
         return password;
     }
 
+    @Override
     public String toString() {
-        return name;
+        return getName() + " (" + getId() + ")\nPassword: " + getPassword();
     }
 }

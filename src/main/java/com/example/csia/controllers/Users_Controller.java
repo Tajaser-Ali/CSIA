@@ -2,14 +2,17 @@ package com.example.csia.controllers;
 
 import com.example.csia.models.User;
 import com.example.csia.utils.SceneManager;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import com.example.csia.utils.DatabaseHandler;
+import com.example.csia.controllers.Users_Controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Users_Controller {
 
@@ -34,7 +37,8 @@ public class Users_Controller {
     @FXML
     private Label statusLabel;
 
-    private List<User> allUsers;
+    private ObservableList<User> allUsers = FXCollections.observableArrayList();
+
 
     private String searchType = "";
 
@@ -74,6 +78,35 @@ public class Users_Controller {
 
     public void onClickGoBack(ActionEvent event) {
         SceneManager.switchScene("adminDashboard.fxml", "Admin Dashboard");
+    }
+
+    @FXML
+    public void initialize() {
+        // Load users from database
+        try {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+            Connection conn = dbHandler.getConnection();
+            String query = "SELECT * FROM `User`";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("Name");
+                String id = rs.getString("ID");
+                String password = rs.getString("Password");
+                allUsers.add(new User(name, id, password));
+            }
+
+            // Set the ObservableList to the ListView
+            userListView.setItems(allUsers);
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            statusLabel.setText("Failed to load users from database.");
+        }
     }
 
 }

@@ -11,11 +11,12 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia.controllers.AdminDashboard_Controller">
    <children>
       <Line endX="-90.0" endY="-144.0" layoutX="177.0" layoutY="144.0" startX="-90.0" startY="256.0" />
-      <ImageView fx:id="searchImage" fitHeight="60" fitWidth="60"
-                 layoutX="18" layoutY="17" onMouseClicked="#takeToSearch" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="searchImage" fitHeight="60" fitWidth="60" layoutX="18" layoutY="17" onMouseClicked="#takeToSearch" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/dummy-removebg-preview.png" />
+         </image></ImageView>
 
-      <ImageView fx:id="usersImage" fitHeight="60" fitWidth="60"
-                 layoutX="18" layoutY="130" onMouseClicked="#takeToUsers" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="usersImage" fitHeight="60" fitWidth="60" layoutX="18" layoutY="130" onMouseClicked="#takeToUsers" pickOnBounds="true" preserveRatio="true" />
 
       <Label layoutX="27.0" layoutY="85.0" text="Search" />
       <Label layoutX="31.0" layoutY="196.0" text="Users" />
@@ -25,5 +26,7 @@
          </font>
       </Label>
       <Button fx:id="logoutButton" layoutX="538.0" layoutY="3.0" mnemonicParsing="false" onAction="#onClickLogout" text="Logout" />
+      <ImageView fx:id="editorImage" fitHeight="60" fitWidth="60" layoutX="16.0" layoutY="243.0" onMouseClicked="#takeToEditor" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="33.0" layoutY="305.0" text="Editor" />
    </children>
 </AnchorPane>

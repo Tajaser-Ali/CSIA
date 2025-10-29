@@ -11,11 +11,7 @@
       <Button fx:id="emailButton" layoutX="222.0" layoutY="182.0" mnemonicParsing="false" onAction="#onClickSendEmail" text="Send E-mail" />
       <Label layoutX="154.0" layoutY="157.0" text="Enter Email:" />
       <TextField fx:id="emailField" layoutX="222.0" layoutY="152.0" prefHeight="26.0" prefWidth="220.0" promptText="name@email.com" />
-      <Label fx:id="statusLabel" layoutX="196.0" layoutY="233.0" prefHeight="53.0" prefWidth="169.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
+      <Label fx:id="statusLabel" layoutX="149.0" layoutY="270.0" prefHeight="17.0" prefWidth="398.0" textFill="RED" />
       <Button fx:id="loginButton" layoutX="472.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickSendToLogin" text="Go back to Login" />
    </children>
 </AnchorPane>

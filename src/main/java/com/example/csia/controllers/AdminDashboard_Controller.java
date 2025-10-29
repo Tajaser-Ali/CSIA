@@ -19,12 +19,18 @@ public class AdminDashboard_Controller {
     @FXML
     private ImageView usersImage;
 
+    @FXML
+    private ImageView editorImage;
+
     public void initialize() {
         Image searchImg = new Image(getClass().getResourceAsStream("/Images/dummy-removebg-preview.png"));
         searchImage.setImage(searchImg);
 
         Image usersImg = new Image(getClass().getResourceAsStream("/Images/Default_pfp.svg.png"));
         usersImage.setImage(usersImg);
+
+        Image editorImg = new Image(getClass().getResourceAsStream("/Images/1-12630fd6.png"));
+        editorImage.setImage(editorImg);
     }
 
     public void onClickLogout(ActionEvent event) {
@@ -37,5 +43,9 @@ public class AdminDashboard_Controller {
 
     public void takeToUsers(MouseEvent event) {
         SceneManager.switchScene("Users.fxml", "Users");
+    }
+
+    public void takeToEditor(MouseEvent event) {
+        SceneManager.switchScene("editor.fxml", "Editor");
     }
 }

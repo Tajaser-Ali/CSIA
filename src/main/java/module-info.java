@@ -3,6 +3,7 @@ module com.example.csia {
     requires javafx.fxml;
     requires java.sql;
 
+
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -15,6 +16,8 @@ module com.example.csia {
     opens com.example.csia.controllers to javafx.fxml;
     opens com.example.csia.models to javafx.base;
 
+
     exports com.example.csia;
     exports com.example.csia.controllers;
+    opens com.example.csia.utils to javafx.base;
 }
