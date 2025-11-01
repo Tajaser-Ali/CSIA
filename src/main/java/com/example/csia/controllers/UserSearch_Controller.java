@@ -98,13 +98,16 @@ public class UserSearch_Controller {
         if (chem != null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csia/ChemicalDetails.fxml"));
-                Parent root = loader.load();
+                Scene scene = new Scene(loader.load(), 320, 240);
+                //Parent root = loader.load();
 
                 ChemicalDetails_Controller controller = loader.getController();
                 controller.setChemical(chem);
+                Stage otherStage = new Stage();
 
                 Stage stage = (Stage) searchButton.getScene().getWindow();
-                stage.setScene(new Scene(root));
+                otherStage.setScene(scene);
+                otherStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }

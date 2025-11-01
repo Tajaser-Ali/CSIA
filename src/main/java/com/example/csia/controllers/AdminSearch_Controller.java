@@ -51,6 +51,9 @@ public class AdminSearch_Controller {
     @FXML
     private Label statusLabel;
 
+    @FXML
+    private Label editLabel;
+
     private List<Chemical> allChemicals = new ArrayList<>();
 
     public void onClickLogout(ActionEvent event) {
@@ -117,7 +120,17 @@ public class AdminSearch_Controller {
         }
     }
 
+    public void onClickToggleEdit(ActionEvent event) {
+        boolean isEditMode = editToggler.isSelected();
 
+        if (isEditMode) {
+            editLabel.setText("Edit mode enabled.");
+            // enable editing fields, or pass a flag to the next scene
+        } else {
+            editLabel.setText("Edit mode disabled.");
+            // disable editing fields
+        }
+    }
 
 
     public void onClickGoBack(ActionEvent event) {

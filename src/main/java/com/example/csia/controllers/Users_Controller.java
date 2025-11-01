@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import com.example.csia.utils.DatabaseHandler;
-import com.example.csia.controllers.Users_Controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
