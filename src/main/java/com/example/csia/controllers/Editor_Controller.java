@@ -45,6 +45,9 @@ public class Editor_Controller {
     private TextField idFieldUser;
 
     @FXML
+    private TextField disposalField;
+
+    @FXML
     private Label statusLabel;
 
     private final DatabaseHandler db = new DatabaseHandler();
@@ -58,13 +61,15 @@ public class Editor_Controller {
             int id = Integer.parseInt(idFieldChem.getText().trim());
             String name = nameFieldChem.getText().trim();
             String hCode = hCodeField.getText().trim();
+            String disposal = disposalField.getText().trim();
 
-            if (name.isEmpty() || hCode.isEmpty()) {
+
+            if (name.isEmpty() || hCode.isEmpty() || disposal.isEmpty()) {
                 statusLabel.setText("Please fill all chemical fields.");
                 return;
             }
 
-            Chemical chem = new Chemical(id, name, hCode);
+            Chemical chem = new Chemical(id, name, hCode, disposal);
             db.insertChemical(chem);
             statusLabel.setText("Chemical added successfully.");
         } catch (NumberFormatException e) {

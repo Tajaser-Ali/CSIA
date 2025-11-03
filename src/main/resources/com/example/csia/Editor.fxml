@@ -23,9 +23,9 @@
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="87.0" text="Name:" />
-      <TextField fx:id="nameFieldChem" layoutX="73.0" layoutY="82.0" />
-      <TextField fx:id="hCodeField" layoutX="73.0" layoutY="128.0" />
-      <TextField fx:id="idFieldChem" layoutX="73.0" layoutY="174.0" />
+      <TextField fx:id="nameFieldChem" layoutX="83.0" layoutY="82.0" />
+      <TextField fx:id="hCodeField" layoutX="83.0" layoutY="128.0" />
+      <TextField fx:id="idFieldChem" layoutX="83.0" layoutY="174.0" />
       <Label layoutX="24.0" layoutY="179.0" text="ID:" />
       <Label layoutX="24.0" layoutY="133.0" text="Hcode:" />
       <Label layoutX="324.0" layoutY="87.0" text="Name:" />
@@ -34,10 +34,12 @@
       <TextField fx:id="idFieldUser" layoutX="384.0" layoutY="174.0" />
       <Label layoutX="324.0" layoutY="179.0" text="ID:" />
       <Label layoutX="324.0" layoutY="133.0" text="Password:" />
-      <Button fx:id="addChemButton" layoutX="36.0" layoutY="230.0" mnemonicParsing="false" onAction="#onClickAddChem" text="Add Chemical" />
-      <Button fx:id="deleteChemButton" layoutX="156.0" layoutY="230.0" mnemonicParsing="false" onAction="#onClickDeleteChem" text="Delete Chemical" />
+      <Button fx:id="addChemButton" layoutX="36.0" layoutY="270.0" mnemonicParsing="false" onAction="#onClickAddChem" text="Add Chemical" />
+      <Button fx:id="deleteChemButton" layoutX="156.0" layoutY="270.0" mnemonicParsing="false" onAction="#onClickDeleteChem" text="Delete Chemical" />
       <Button fx:id="addUserButton" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#onClickAddUser" text="Add User" />
       <Button fx:id="deleteUserButton" layoutX="456.0" layoutY="230.0" mnemonicParsing="false" onAction="#onClickDeleteUser" text="Delete User" />
         <Label fx:id="statusLabel" layoutX="100.0" layoutY="310.0" prefHeight="17.0" prefWidth="398.0" textFill="RED" />
+      <TextField fx:id="disposalField" layoutX="83.0" layoutY="220.0" />
+      <Label layoutX="24.0" layoutY="225.0" text="Disposal:" />
     </children>
 </AnchorPane>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csia.controllers.ChemicalDetails_Controller"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia.controllers.ChemicalDetails_Controller">
     <children>
         <Label layoutX="50.0" layoutY="30.0" text="ID:" />
-        <Label fx:id="idLabel" layoutX="150.0" layoutY="30.0" text=""/>
+        <Label fx:id="idLabel" layoutX="150.0" layoutY="30.0" text="" />
 
         <Label layoutX="50.0" layoutY="70.0" text="Name:" />
-        <Label fx:id="nameLabel" layoutX="150.0" layoutY="70.0" text=""/>
+        <Label fx:id="nameLabel" layoutX="150.0" layoutY="70.0" text="" />
 
         <Label layoutX="50.0" layoutY="110.0" text="HCode:" />
-        <Label fx:id="hCodeLabel" layoutX="150.0" layoutY="110.0" text=""/>
-    </children>
+        <Label fx:id="hCodeLabel" layoutX="150.0" layoutY="110.0" text="" />
 
+        <Label layoutX="50.0" layoutY="150.0" text="Disposal:" />
+        <Label fx:id="disposalLabel" layoutX="150.0" layoutY="150.0" text="" />
+
+        <TextField fx:id="disposalField" layoutX="150.0" layoutY="150.0" visible="false" managed="false" />
+    </children>
 </AnchorPane>
+

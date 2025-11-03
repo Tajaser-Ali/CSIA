@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import com.example.csia.models.Chemical;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -55,6 +54,7 @@ public class AdminSearch_Controller {
     private Label editLabel;
 
     private List<Chemical> allChemicals = new ArrayList<>();
+    private ChemicalDetails_Controller chemicalDetailsController;
 
     public void onClickLogout(ActionEvent event) {
         SceneManager.switchScene("login.fxml", "Login");
@@ -65,11 +65,11 @@ public class AdminSearch_Controller {
         String query = chemicalSearch.getText().trim();
         String selected = searchSelector.getText();
 
+        // Validation
         if (selected.isEmpty() || selected.equals("Search By:")) {
             statusLabel.setText("Please select a search type.");
             return;
         }
-
         if (query.isEmpty()) {
             statusLabel.setText("Please enter a search value.");
             return;
@@ -78,6 +78,7 @@ public class AdminSearch_Controller {
         DatabaseHandler db = new DatabaseHandler();
         Chemical chem = null;
 
+        // Determine search type
         switch (selected) {
             case "ID":
                 try {
@@ -88,11 +89,9 @@ public class AdminSearch_Controller {
                     return;
                 }
                 break;
-
             case "Name":
                 chem = db.getChemicalByName(query);
                 break;
-
             case "H-Code":
                 if (!query.matches("^H[1-4].*")) {
                     statusLabel.setText("Invalid H-Code format. Must start with H1–H4.");
@@ -105,20 +104,30 @@ public class AdminSearch_Controller {
         if (chem != null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csia/ChemicalDetails.fxml"));
-                Parent root = loader.load();
+                Scene scene = new Scene(loader.load(), 600, 400);
 
-                ChemicalDetails_Controller controller = loader.getController();
-                controller.setChemical(chem);
+                // Get controller reference
+                chemicalDetailsController = loader.getController();
+                chemicalDetailsController.setChemical(chem);
 
-                Stage stage = (Stage) searchButton.getScene().getWindow();
-                stage.setScene(new Scene(root));
+                // Immediately apply edit mode if checkbox is selected
+                chemicalDetailsController.setEditMode(editToggler.isSelected());
+
+                // Open the new window
+                Stage otherStage = new Stage();
+                otherStage.setScene(scene);
+                otherStage.show();
+
             } catch (IOException e) {
                 e.printStackTrace();
+                statusLabel.setText("Failed to open chemical details window.");
             }
         } else {
             statusLabel.setText("Chemical not found.");
         }
     }
+
+
 
     public void onClickToggleEdit(ActionEvent event) {
         boolean isEditMode = editToggler.isSelected();
@@ -129,6 +138,12 @@ public class AdminSearch_Controller {
         } else {
             editLabel.setText("Edit mode disabled.");
             // disable editing fields
+        }
+
+        // pass edit mode to the ChemicalDetails_Controller
+        // assuming you have a reference to the controller instance:
+        if (chemicalDetailsController != null) {
+            chemicalDetailsController.setEditMode(isEditMode);
         }
     }
 
@@ -161,7 +176,8 @@ public class AdminSearch_Controller {
                 allChemicals.add(new Chemical(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getString("hcode")
+                        rs.getString("hcode"),
+                        rs.getString("disposal")
                 ));
             }
         } catch (SQLException e) {

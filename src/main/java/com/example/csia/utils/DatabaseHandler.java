@@ -39,7 +39,7 @@ public class DatabaseHandler {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"));
+                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"), rs.getString("Disposal"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class DatabaseHandler {
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"));
+                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"), rs.getString("Disposal"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class DatabaseHandler {
             ps.setString(1, hCode);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"));
+                return new Chemical(rs.getInt("id"), rs.getString("name"), rs.getString("HCode"), rs.getString("Disposal"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
