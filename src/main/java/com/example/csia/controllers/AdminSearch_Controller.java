@@ -171,7 +171,7 @@ public class AdminSearch_Controller {
     private void loadChemicals() {
         DatabaseHandler db = new DatabaseHandler();
         try {
-            ResultSet rs = db.getConnection().createStatement().executeQuery("SELECT * FROM chemicals");
+        ResultSet rs = db.getConnection().createStatement().executeQuery("SELECT * FROM Chemicals");
             while (rs.next()) {
                 allChemicals.add(new Chemical(
                         rs.getInt("id"),

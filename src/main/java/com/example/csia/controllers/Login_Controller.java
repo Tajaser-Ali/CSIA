@@ -32,7 +32,7 @@ public class Login_Controller {
         String id = idField.getText();
         String password = passwordField.getText();
 
-        if (id.equals("TAli") && password.equals("123one")) {
+        if (id.equals("admin") && password.equals("123one")) {
             // Admin login → go to AdminDashboard
             SceneManager.switchScene("admindashboard.fxml", "Admin Dashboard");
         } else {

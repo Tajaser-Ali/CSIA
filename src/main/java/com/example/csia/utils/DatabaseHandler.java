@@ -9,9 +9,9 @@ import java.util.List;
 
 
 public class DatabaseHandler {
-    private static final String URL = "jdbc:mysql://localhost:8889/CSIA_Database";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://188.166.113.149:33066/db_u03?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private static final String USER = "u03";
+    private static final String PASSWORD = "rO8YjplMwlmpLyzo";
 
     private Connection connection;
 
@@ -20,7 +20,7 @@ public class DatabaseHandler {
     }
 
     public void insertChemical(Chemical chemical) {
-        String query = "INSERT INTO chemicals (id, name, hcode) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Chemicals (id, name, hcode) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, chemical.getId());
@@ -33,7 +33,7 @@ public class DatabaseHandler {
     }
 
     public Chemical getChemicalById(int id) {
-        String query = "SELECT * FROM chemicals WHERE id = ?";
+        String query = "SELECT * FROM Chemicals WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setInt(1, id);
@@ -48,7 +48,7 @@ public class DatabaseHandler {
     }
 
     public Chemical getChemicalByName(String name) {
-        String query = "SELECT * FROM chemicals WHERE name = ?";
+        String query = "SELECT * FROM Chemicals WHERE name = ?";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, name);
@@ -63,7 +63,7 @@ public class DatabaseHandler {
     }
 
     public Chemical getChemicalByHCode(String hCode) {
-        String query = "SELECT * FROM chemicals WHERE HCode = ?";
+        String query = "SELECT * FROM Chemicals WHERE HCode = ?";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, hCode);
@@ -79,7 +79,7 @@ public class DatabaseHandler {
 
 
     public void updateChemical(Chemical chemical) {
-        String query = "UPDATE chemicals SET name = ?, hcode = ? WHERE id = ?";
+        String query = "UPDATE Chemicals SET name = ?, hcode = ? WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, chemical.getName());
@@ -92,7 +92,7 @@ public class DatabaseHandler {
     }
 
     public void deleteChemical(int id) {
-        String query = "DELETE FROM chemicals WHERE id = ?";
+        String query = "DELETE FROM Chemicals WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);

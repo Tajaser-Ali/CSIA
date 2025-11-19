@@ -54,7 +54,7 @@ public class ChemicalDetails_Controller {
 
         // update the database
         DatabaseHandler db = new DatabaseHandler();
-        String query = "UPDATE chemicals SET disposal = ? WHERE id = ?";
+        String query = "UPDATE Chemicals SET disposal = ? WHERE id = ?";
         try (PreparedStatement stmt = db.getConnection().prepareStatement(query)) {
             stmt.setString(1, newDisposal);
             stmt.setInt(2, chemical.getId());
